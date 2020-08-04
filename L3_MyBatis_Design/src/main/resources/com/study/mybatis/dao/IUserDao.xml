@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.study.mybatis.dao.IUserDao">
+    <!-- 配置查询所有(方法名称) 返回的封装类型 -->
+    <select id="findAll" resultType="com.study.mybatis.domain.User">
+        select * from user
+    </select>
+</mapper>
