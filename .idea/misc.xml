@@ -10,6 +10,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/L3_MyBatis_Design/pom.xml" />
       </list>
     </option>
   </component>

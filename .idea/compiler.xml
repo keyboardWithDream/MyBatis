@@ -6,8 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FirstProject" />
+        <module name="L2_Annotation" />
+        <module name="L1_FirstProject" />
+        <module name="L3_MyBatis_Design" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="L2_注解使用MyBatis" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
