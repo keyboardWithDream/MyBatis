@@ -9,6 +9,8 @@
         <module name="L2_Annotation" />
         <module name="L1_FirstProject" />
         <module name="L3_MyBatis_Design" />
+        <module name="L4_MyBatis_CRUD" />
+        <module name="L5_MyBatis_DAO" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

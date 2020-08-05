@@ -12,6 +12,8 @@
         <module>L1_FirstProject</module>
         <module>L2_Annotation</module>
         <module>L3_MyBatis_Design</module>
+        <module>L4_MyBatis_CRUD</module>
+        <module>L5_MyBatis_DAO</module>
     </modules>
 
     <dependencies>

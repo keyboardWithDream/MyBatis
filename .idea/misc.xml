@@ -11,6 +11,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/L3_MyBatis_Design/pom.xml" />
+        <option value="$PROJECT_DIR$/L4_MyBatis_CRUD/pom.xml" />
       </list>
     </option>
   </component>

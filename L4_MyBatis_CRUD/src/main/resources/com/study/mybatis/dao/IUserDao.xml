@@ -58,6 +58,6 @@
 
     <!-- 根据QueryVo 的条件查询用户 -->
     <select id="findUserByVo" parameterType="com.study.mybatis.domain.QueryVo" resultMap="userMap">
-        SELECT * FROM user WHERE username LIKE #{user.uName};
+        SELECT * FROM user WHERE username LIKE #{user.username};
     </select>
 </mapper>
