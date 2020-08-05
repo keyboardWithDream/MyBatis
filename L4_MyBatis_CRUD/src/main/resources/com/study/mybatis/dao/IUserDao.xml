@@ -21,7 +21,7 @@
     </select>
 
     <!-- 保存用户 -->
-    <insert id="saveUser" parameterType="com.study.mybatis.domain.User">
+    <insert id="saveUser" parameterType="user">
         INSERT INTO user(username, birthday, sex, address) VALUES (#{uName}, #{uBirthday}, #{uSex}, #{uAddress});
         <!-- 配置插入操作后, 获取插入数据的ID -->
         <selectKey keyProperty="uid" keyColumn="id" resultType="java.lang.Integer" order="AFTER">
@@ -30,7 +30,7 @@
     </insert>
     
     <!-- 更新用户 -->
-    <update id="updateUser" parameterType="com.study.mybatis.domain.User">
+    <update id="updateUser" parameterType="user">
         UPDATE user SET username=#{uName}, address=#{uAddress}, sex=#{uSex}, birthday=#{uBirthday} WHERE id=#{uid};
     </update>
 
