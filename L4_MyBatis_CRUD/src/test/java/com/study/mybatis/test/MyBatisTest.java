@@ -1,6 +1,7 @@
 package com.study.mybatis.test;
 
 import com.study.mybatis.dao.IUserDao;
+import com.study.mybatis.domain.QueryVo;
 import com.study.mybatis.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -68,10 +69,10 @@ public class MyBatisTest {
     @Test
     public void testSaveUser() throws IOException {
         User user = new User();
-        user.setUsername("Harlan");
-        user.setBirthday(new Date());
-        user.setAddress("重庆市江北区");
-        user.setSex("男");
+        user.setuName("Harlan");
+        user.setuBirthday(new Date());
+        user.setuAddress("重庆市江北区");
+        user.setuSex("男");
 
         System.out.println("保存操作前: " + user);
 
@@ -86,11 +87,11 @@ public class MyBatisTest {
     @Test
     public void testUpdateUser(){
         User user = new User();
-        user.setId(53);
-        user.setUsername("胡号南");
-        user.setBirthday(new Date());
-        user.setAddress("重庆市江北区");
-        user.setSex("男");
+        user.setUid(53);
+        user.setuName("胡号南");
+        user.setuBirthday(new Date());
+        user.setuAddress("重庆市江北区");
+        user.setuSex("男");
 
         userDao.updateUser(user);
     }
@@ -100,7 +101,7 @@ public class MyBatisTest {
      */
     @Test
     public void testDeleteUser(){
-        userDao.deleteUser(53);
+        userDao.deleteUser(55);
     }
 
     /**
@@ -108,7 +109,7 @@ public class MyBatisTest {
      */
     @Test
     public void testFindUserById(){
-        User user = userDao.findUserById(45);
+        User user = userDao.findUserById(56);
         System.out.println(user);
     }
 
@@ -133,5 +134,19 @@ public class MyBatisTest {
     public void testFindTotal(){
         int total = userDao.findTotal();
         System.out.println(total);
+    }
+
+    /**
+     * 测试使用QueryVo作为查询条件
+     */
+    @Test
+    public void testFindUserByQueryVo(){
+        QueryVo vo = new QueryVo();
+        User user = new User();
+        user.setuName("传智播客");
+        vo.setUser(user);
+
+        user = userDao.findUserByVo(vo);
+        System.out.println(user);
     }
 }

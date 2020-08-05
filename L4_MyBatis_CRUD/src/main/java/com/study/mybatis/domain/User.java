@@ -8,60 +8,60 @@ import java.util.Date;
  */
 public class User {
 
-    private Integer id;
-    private String username;
-    private String address;
-    private String sex;
-    private Date birthday;
+    private Integer uid;
+    private String uName;
+    private String uAddress;
+    private String uSex;
+    private Date uBirthday;
 
-    public Integer getId() {
-        return id;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getuName() {
+        return uName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setuName(String uName) {
+        this.uName = uName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getuAddress() {
+        return uAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setuAddress(String uAddress) {
+        this.uAddress = uAddress;
     }
 
-    public String getSex() {
-        return sex;
+    public String getuSex() {
+        return uSex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setuSex(String uSex) {
+        this.uSex = uSex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public Date getuBirthday() {
+        return uBirthday;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setuBirthday(Date uBirthday) {
+        this.uBirthday = uBirthday;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", address='" + address + '\'' +
-                ", sex='" + sex + '\'' +
-                ", birthday=" + birthday +
+                "uid=" + uid +
+                ", uName='" + uName + '\'' +
+                ", uAddress='" + uAddress + '\'' +
+                ", uSex='" + uSex + '\'' +
+                ", uBirthday=" + uBirthday +
                 '}';
     }
 }
