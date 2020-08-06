@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mybatis.dao.IUserDao">
+
+    <!-- 查询所有用户 -->
+    <select id="findAll" resultType="user">
+        <include refid="defaultUser"/>
+    </select>
+
+    <!-- 查询用户 -->
+    <select id="findUserById" resultType="user" parameterType="java.lang.Integer">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+
+    <!-- 模糊查询用户 -->
+    <select id="findUserByName" resultType="user" parameterType="java.lang.String">
+        <!-- 第一种写法 传入参数要带%  -->
+        SELECT * FROM user WHERE username LIKE #{username}
+        <!-- 第二种写法 传入参数不用带% 不推荐:SQL注入 SELECT * FROM user WHERE username LIKE '%${value}%'; -->
+    </select>
+
+    <!-- 根据QueryVo 的条件查询用户 -->
+    <select id="findUserByVo" parameterType="com.study.mybatis.domain.QueryVo" resultType="user">
+        SELECT * FROM user WHERE username LIKE #{user.username}
+    </select>
+    
+    <!-- 根据条件查询 if标签
+    <select id="findUserByCondition" parameterType="user" resultType="user">
+        SELECT * FROM user WHERE 1=1
+        <if test="username != null">
+            AND username=#{username}
+        </if>
+        <if test="sex != null">
+            AND sex=#{sex}
+        </if>
+    </select>
+     -->
+
+    <!-- 根据条件查询 where标签 -->
+    <select id="findUserByCondition" parameterType="user" resultType="user">
+        SELECT * FROM user
+        <where>
+            <if test="username != null">
+                AND username=#{username}
+            </if>
+            <if test="sex != null">
+                AND sex=#{sex}
+            </if>
+        </where>
+    </select>
+
+    <!-- 根据QueryVo中的Id集合查询用户 -->
+    <select id="findUserByIds" parameterType="QueryVo" resultType="User">
+        SELECT * FROM user
+        <where>
+            <if test="ids != null and ids.size() > 0">
+                <foreach collection="ids" open="and id in (" close=")" item="uid" separator=",">
+                    #{uid}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <!-- 抽取重复的SQL语句 -->
+    <sql id="defaultUser">
+        SELECT * FROM user
+    </sql>
+</mapper>
