@@ -14,6 +14,8 @@
         <module>L3_MyBatis_Design</module>
         <module>L4_MyBatis_CRUD</module>
         <module>L5_MyBatis_DAO</module>
+        <module>L6_DataSourceANDTx</module>
+        <module>L7_DynamicSQL</module>
     </modules>
 
     <dependencies>
