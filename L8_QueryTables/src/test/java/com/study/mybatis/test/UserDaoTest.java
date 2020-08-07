@@ -56,17 +56,8 @@ public class UserDaoTest {
     public void testFindAll() throws IOException {
         List<User> users = userDao.findAll();
         for (User user : users) {
-            System.out.println(user);
+            System.out.print(user +" --- ");
+            System.out.println(user.getAccounts());
         }
-    }
-
-
-    /**
-     * 测试单个查询操作
-     */
-    @Test
-    public void testFindUserById(){
-        User user = userDao.findUserById(56);
-        System.out.println(user);
     }
 }

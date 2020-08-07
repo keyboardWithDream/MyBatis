@@ -10,7 +10,7 @@
         <result property="uid" column="uid"/>
         <result property="money" column="money"/>
         <!-- 一对一的关系映射, 配置封装user的内容 -->
-        <association property="user" column="uid" javaType="User">
+        <association property="user" column="uid">
             <id property="id" column="id"/>
             <result property="username" column="username"/>
             <result property="address" column="address"/>
