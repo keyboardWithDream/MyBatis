@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="L2_Annotation" />
+        <module name="L9_JNDI" />
         <module name="L3_MyBatis_Design" />
         <module name="L4_MyBatis_CRUD" />
         <module name="L8_QueryTables" />
