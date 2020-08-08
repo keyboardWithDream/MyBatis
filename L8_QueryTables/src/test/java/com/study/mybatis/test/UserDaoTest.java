@@ -50,7 +50,7 @@ public class UserDaoTest {
 
 
     /**
-     * 测试查询操作
+     * 测试查询操作包括用户账户信息
      */
     @Test
     public void testFindAll() throws IOException {
@@ -58,6 +58,18 @@ public class UserDaoTest {
         for (User user : users) {
             System.out.print(user +" --- ");
             System.out.println(user.getAccounts());
+        }
+    }
+
+    /**
+     * 查询所有用户包括角色信息
+     */
+    @Test
+    public void testFindUserWhitRole(){
+        List<User> users = userDao.findAllWithRole();
+        for (User user : users) {
+            System.out.print(user + " ---- ");
+            System.out.println(user.getRoles());
         }
     }
 }

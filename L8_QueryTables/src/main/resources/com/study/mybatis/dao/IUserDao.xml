@@ -17,12 +17,33 @@
             <result property="uid" column="uid"/>
             <result property="money" column="money"/>
         </collection>
-
     </resultMap>
 
     <!-- 查询所有用户并包含所有账户 -->
     <select id="findAll" resultMap="userAccountMap">
         SELECT * FROM user u LEFT JOIN account a ON u.id = a.UID
+    </select>
+
+    <!-- ====================================================== -->
+
+    <!-- 定义用户角色查询的resultMap -->
+    <resultMap id="userRoleMap" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <collection property="roles" ofType="Role">
+            <id property="id" column="rid"/>
+            <result property="desc" column="ROLE_DESC"/>
+            <result property="name" column="ROLE_NAME"/>
+        </collection>
+    </resultMap>
+
+    <!-- 查询所有用户并包含角色信息 -->
+    <select id="findAllWithRole" resultMap="userRoleMap">
+        SELECT u.* , r.id AS rid, r.role_desc, r.role_name FROM user u
+            LEFT OUTER JOIN user_role ur ON u.id = ur.UID
+            LEFT OUTER JOIN role r ON r.id = ur.RID
     </select>
 
 </mapper>

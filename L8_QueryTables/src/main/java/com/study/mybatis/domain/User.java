@@ -14,9 +14,25 @@ public class User {
     private Date birthday;
     private String sex;
     private String address;
-    private List<Account> accounts;
-    //一对多关系映射, 主表实体应该包含从表实体的集合引用
 
+    /**
+     * 一对多关系映射, 主表实体应该包含从表实体的集合引用
+     */
+    private List<Account> accounts;
+
+    /**
+     * 多对多关系映射 对方表实体集合的引用
+     */
+    private List<Role> roles;
+
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public List<Account> getAccounts() {
         return accounts;

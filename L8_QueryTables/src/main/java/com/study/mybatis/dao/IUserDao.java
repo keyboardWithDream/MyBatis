@@ -16,10 +16,10 @@ public interface IUserDao {
      */
     List<User> findAll();
 
+
     /**
-     * 根据id查询用户
-     * @param id 用户id
-     * @return 用户对象
+     * 查询所有用户信息, 同时获取用户所包含的角色
+     * @return 用户信息
      */
-    User findUserById(Integer id);
+    List<User> findAllWithRole();
 }
