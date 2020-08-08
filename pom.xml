@@ -16,6 +16,7 @@
         <module>L5_MyBatis_DAO</module>
         <module>L6_DataSourceANDTx</module>
         <module>L7_DynamicSQL</module>
+        <module>L8_QueryTables</module>
     </modules>
 
     <dependencies>

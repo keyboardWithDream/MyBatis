@@ -9,6 +9,7 @@
         <module name="L2_Annotation" />
         <module name="L3_MyBatis_Design" />
         <module name="L4_MyBatis_CRUD" />
+        <module name="L8_QueryTables" />
         <module name="L1_FirstProject" />
         <module name="L6_DataSourceANDTx" />
         <module name="L5_MyBatis_DAO" />
