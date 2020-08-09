@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mybatis.dao.IAccountDao">
+    <resultMap id="accountMap" type="Account">
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+
+        <!--
+        select 属性指定的内容为: 查询用户的唯一标识方法
+        column 属性指定的内容为: 方法所需要的参数值
+        -->
+        <association property="user" column="uid" javaType="User" select="com.study.mybatis.dao.IUserDao.findById">
+            <id property="id" column="uid"/>
+            <result property="username" column="username"/>
+            <result property="sex" column="sex"/>
+            <result property="address" column="address"/>
+            <result property="birthday" column="birthday"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="accountMap">
+        SELECT a.* FROM account a
+    </select>
+</mapper>
