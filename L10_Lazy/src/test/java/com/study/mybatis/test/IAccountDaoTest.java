@@ -48,4 +48,12 @@ public class IAccountDaoTest {
             System.out.println(account.getUser());
         }
     }
+
+    @Test
+    public void testFindByUid(){
+        List<Account> accounts = dao.findByUid(41);
+        for (Account account : accounts) {
+            System.out.println(account);
+        }
+    }
 }

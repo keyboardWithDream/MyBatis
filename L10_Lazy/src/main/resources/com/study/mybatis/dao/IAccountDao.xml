@@ -24,4 +24,8 @@
     <select id="findAll" resultMap="accountMap">
         SELECT a.* FROM account a
     </select>
+
+    <select id="findByUid" parameterType="int" resultType="Account">
+        SELECT * FROM account where UID = #{uid}
+    </select>
 </mapper>

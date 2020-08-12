@@ -10,7 +10,7 @@
         <result property="birthday" column="birthday"/>
         <result property="sex" column="sex"/>
         <result property="address" column="address"/>
-        <collection property="accounts" ofType="Account">
+        <collection property="accounts" ofType="Account" select="com.study.mybatis.dao.IAccountDao.findByUid" column="id">
             <id property="id" column="aid"/>
             <result property="uid" column="uid"/>
             <result property="money" column="money"/>
@@ -18,13 +18,11 @@
     </resultMap>
 
     <select id="findAll" resultMap="userMap">
-        SELECT u.*, a.ID as aid, a.MONEY, a.UID
-        FROM `user` u
-                 LEFT JOIN account a on u.id = a.uid;
+        SELECT * FROM user
     </select>
 
     <!-- 查询用户的唯一标识 -->
-    <select id="findById" parameterType="java.lang.Integer" resultType="User">
+    <select id="findByUid" parameterType="java.lang.Integer" resultType="User">
         SELECT * FROM user WHERE id=#{id}
     </select>
 </mapper>

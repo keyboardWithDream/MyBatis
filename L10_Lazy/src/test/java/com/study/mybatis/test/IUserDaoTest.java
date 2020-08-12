@@ -41,7 +41,7 @@ public class IUserDaoTest {
 
     @Test
     public void testFindById(){
-        User user = dao.findById(58);
+        User user = dao.findByUid(58);
         System.out.println(user);
     }
 

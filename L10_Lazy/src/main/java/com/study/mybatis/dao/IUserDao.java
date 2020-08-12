@@ -21,5 +21,5 @@ public interface IUserDao {
      * @param id 用户id
      * @return 用户信息
      */
-    User findById(Integer id);
+    User findByUid(Integer id);
 }
