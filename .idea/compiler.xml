@@ -6,19 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="L2_Annotation" />
         <module name="L9_JNDI" />
         <module name="L3_MyBatis_Design" />
         <module name="L4_MyBatis_CRUD" />
+        <module name="L13_AnnoTables" />
+        <module name="L6_DataSourceANDTx" />
+        <module name="L5_MyBatis_DAO" />
+        <module name="L2_Annotation" />
         <module name="L8_QueryTables" />
         <module name="L1_FirstProject" />
-        <module name="L6_DataSourceANDTx" />
+        <module name="L11_Cache" />
         <module name="L10_Lazy" />
-        <module name="L5_MyBatis_DAO" />
         <module name="L7_DynamicSQL" />
+        <module name="L12_Annotation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Cache" target="1.5" />
       <module name="DataSource&amp;Tx" target="1.5" />
       <module name="L2_注解使用MyBatis" target="1.5" />
     </bytecodeTargetLevel>

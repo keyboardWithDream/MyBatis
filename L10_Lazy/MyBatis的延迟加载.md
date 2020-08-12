@@ -20,6 +20,8 @@
 
 ***
 
+
+
 ## 延迟加载&立即加载
 
 ### 延迟加载
@@ -39,10 +41,84 @@
 
 ***
 
-## 对一: `<Association>`标签下使用延迟加载
+
+
+## 对一: `<association>`标签下使用延迟加载
+
+`SqlMapConfig.xml`下配置是否开启延迟加载:
+
+```xml
+<!-- 配置参数 -->
+    <settings>
+        <!-- 开启MyBatis支持延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+```
 
 | 设置名                  | 描述                                                         | 有效值        | 默认值                                       |
 | :---------------------- | :----------------------------------------------------------- | :------------ | :------------------------------------------- |
 | `lazyLoadingEnabled`    | 延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置 `fetchType` 属性来覆盖该项的开关状态。 | true \| false | false                                        |
 | `aggressiveLazyLoading` | 开启时，任一方法的调用都会加载该对象的所有延迟加载属性。 否则，每个延迟加载属性会按需加载（参考 `lazyLoadTriggerMethods`)。 | true \| false | false （在 3.4.1 及之前的版本中默认为 true） |
+
+
+
+`Mapper.xml`下配置`resultMap`:
+
+`<association>`中 
+
+`select` 属性取值为查询的方法: 全限定类名+方法名
+
+`column` 属性取值为查询的参数
+
+```xml
+<resultMap id="accountMap" type="Account">
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+
+        <!--
+        select 属性指定的内容为: 查询用户的唯一标识方法
+        column 属性指定的内容为: 方法所需要的参数值
+        -->
+        <association property="user" column="uid" javaType="User" select="com.study.mybatis.dao.IUserDao.findById">
+            <id property="id" column="uid"/>
+            <result property="username" column="username"/>
+            <result property="sex" column="sex"/>
+            <result property="address" column="address"/>
+            <result property="birthday" column="birthday"/>
+        </association>
+    </resultMap>
+```
+
+***
+
+
+
+## 对多: `<association>`标签下使用延迟加载
+
+`SqlMapConfig.xml`中配置全局延迟加载 同上
+
+`Mapper.xml`下配置`resultMap`:
+
+`<association>`中 
+
+`select` 属性取值为查询的方法: 全限定类名+方法名
+
+`column` 属性取值为查询的参数
+
+```xml
+<resultMap id="userMap" type="User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="address" column="address"/>
+        <collection property="accounts" ofType="Account" select="com.study.mybatis.dao.IAccountDao.findByUid" column="id">
+            <id property="id" column="aid"/>
+            <result property="uid" column="uid"/>
+            <result property="money" column="money"/>
+        </collection>
+    </resultMap>
+```
 

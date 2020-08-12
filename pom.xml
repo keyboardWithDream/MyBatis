@@ -18,6 +18,8 @@
         <module>L7_DynamicSQL</module>
         <module>L8_QueryTables</module>
         <module>L10_Lazy</module>
+        <module>L11_Cache</module>
+        <module>L13_AnnoTables</module>
     </modules>
 
     <dependencies>
